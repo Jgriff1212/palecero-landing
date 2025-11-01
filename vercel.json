@@ -1,24 +1,8 @@
 {
-  "version": 2,
-  "name": "palecero-landing",
-  "builds": [
+  "redirects": [
     {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "confirmation.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/confirmation",
-      "dest": "/confirmation.html"
+      "source": "/confirmation",
+      "destination": "/confirmation.html"
     }
   ],
   "headers": [
