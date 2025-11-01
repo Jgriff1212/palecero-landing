@@ -49,11 +49,11 @@ function loadDynamicContent() {
     // Update hero background image based on audience
     const heroBackground = document.getElementById('heroBackground');
     if (heroBackground) {
-        // Set background image based on audience
+        // Stock images from Unsplash - Replace with actual property photos
         const backgroundImages = {
-            corporate: '/images/hero-corporate.jpg',
-            faculty: '/images/hero-faculty.jpg',
-            lifestyle: '/images/hero-lifestyle.jpg'
+            corporate: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop',
+            faculty: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&h=1080&fit=crop',
+            lifestyle: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1920&h=1080&fit=crop'
         };
         
         heroBackground.style.backgroundImage = `url('${backgroundImages[audience]}')`;
