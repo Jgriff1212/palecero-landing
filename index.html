@@ -3,246 +3,935 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Villas at Palecero | Your Home in Northwest Arkansas</title>
-    <meta name="description" content="Private garages, modern finishes, and townhome living in Tontitown, AR. 22 minutes to Walmart HQ, 12 minutes to U of A.">
-    <link rel="stylesheet" href="styles.css">
+    <title>The Villas at Palecero - Your Next Home in Northwest Arkansas</title>
+    <meta name="description" content="Modern townhomes with private garages in Tontitown, AR. 22 minutes to Walmart HQ. Schedule your tour today.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #2C3333;
+            --primary-light: #F8F6F3;
+            --accent-sage: #8B9D83;
+            --accent-gold: #C9A959;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-dark);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.25rem 0;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .header-cta {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent-sage);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-video-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 51, 51, 0.7) 0%, rgba(139, 157, 131, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-video-container iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero h1 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .social-proof {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-gold);
+            color: var(--white);
+            border-radius: 30px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .social-proof svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-sage);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--accent-sage);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-sage);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-sage);
+            color: var(--white);
+        }
+
+        /* Differentiator Section */
+        .differentiator {
+            background: var(--primary-light);
+            padding: 6rem 2rem;
+        }
+
+        .differentiator-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .differentiator h2 {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .differentiator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .diff-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .diff-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .diff-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .diff-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .diff-item p {
+            font-size: 1rem;
+        }
+
+        /* Video Tour Section */
+        .video-tour {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .video-tour-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-tour h2 {
+            margin-bottom: 1rem;
+        }
+
+        .video-tour p {
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: var(--primary-dark);
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Amenities Section */
+        .amenities {
+            background: var(--primary-light);
+            padding: 6rem 2rem;
+        }
+
+        .amenities-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .amenities h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .amenity-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .amenity-image {
+            width: 100%;
+            height: 250px;
+            background: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .amenity-content {
+            padding: 1.5rem;
+        }
+
+        .amenity-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .amenity-content p {
+            font-size: 0.95rem;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .location-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .location-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .location-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .location-list li strong {
+            color: var(--accent-sage);
+        }
+
+        .location-map {
+            background: var(--primary-light);
+            height: 500px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent-sage);
+        }
+
+        /* Lead Form Section */
+        .lead-form-section {
+            background: var(--accent-sage);
+            padding: 6rem 2rem;
+            color: var(--white);
+        }
+
+        .lead-form-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .lead-form-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .lead-form-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+        }
+
+        .lead-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-sage);
+            box-shadow: 0 0 0 3px rgba(139, 157, 131, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer a {
+            color: var(--accent-sage);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .hero-text {
+                padding: 2rem;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .differentiator-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .social-proof {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Dynamic content loads based on ?source= parameter -->
-    <!-- corporate, faculty, or lifestyle -->
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">The Villas at Palecero</a>
+            <a href="#form" class="header-cta">Book Your Tour</a>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero">
+        <div class="hero-video-container">
+            <!-- YouTube Video Background -->
+            <iframe 
+                src="https://www.youtube.com/embed/bQ42P5iaPsc?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playlist=bQ42P5iaPsc"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+        
         <div class="hero-content">
-            <div class="logo">
-                <!-- Replace with actual logo: /images/palecero-logo.png -->
-                <h2 style="font-family: serif; color: #2C2C2C; font-size: 2rem; margin: 0;">THE VILLAS AT PALECERO</h2>
-            </div>
-            
-            <!-- Dynamic Headlines - JavaScript switches these based on audience -->
-            <h1 class="hero-headline" data-corporate="Relocating for Work? Live Larger, Stress Less." 
-                data-faculty="Finally, a Home That Matches Your Career." 
-                data-lifestyle="Upgrade Your Lifestyle—Not Just Your Rent.">
-                Relocating for Work? Live Larger, Stress Less.
-            </h1>
-            
-            <p class="hero-subheadline">
-                Private garages. Modern finishes. 22 minutes to Walmart HQ.
-            </p>
+            <div class="hero-text">
+                <!-- Social Proof Badge (shown only for corporate) -->
+                <div class="social-proof" id="socialProof" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Preferred Housing for NWA Corporate Transfers</span>
+                </div>
 
-            <div class="hero-cta">
-                <button class="btn btn-primary" onclick="scrollToForm()">Book Your Tour</button>
-                <p class="cta-subtext">Move in this month, first month free</p>
-            </div>
-
-            <!-- Social Proof Badge -->
-            <div class="social-proof" data-corporate="show" data-faculty="hide" data-lifestyle="hide">
-                <p class="proof-text">Trusted by professionals from:</p>
-                <div class="company-logos">
-                    <span class="company">Walmart</span>
-                    <span class="company">Tyson</span>
-                    <span class="company">J.B. Hunt</span>
+                <h1 id="heroHeadline">Live Larger in Northwest Arkansas</h1>
+                <p class="hero-subtitle" id="heroSubtitle">Modern townhomes with private garages, premium finishes, and resort-style amenities. 22 minutes to Walmart HQ. 12 minutes to U of A.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#form" class="btn-primary">Book Your Tour</a>
+                    <a href="https://www.paleceroliving.com/availability" class="btn-secondary" target="_blank">Apply Online</a>
                 </div>
             </div>
         </div>
-
-        <!-- Hero Background Image - Stock images from Unsplash -->
-        <div class="hero-background" id="heroBackground"></div>
     </section>
 
     <!-- Differentiator Section -->
     <section class="differentiator">
-        <div class="container">
-            <h2 class="section-title">No Parking Nightmares. No Cramped Downtown Boxes.</h2>
+        <div class="differentiator-content">
+            <h2>No Parking Nightmares. No Cramped Downtown Boxes.</h2>
             
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🚗</div>
+            <div class="differentiator-grid">
+                <div class="diff-item">
+                    <div class="diff-icon">🚗</div>
                     <h3>Your Own Garage</h3>
-                    <p>Every Unit</p>
-                    <ul class="feature-list">
-                        <li>1-car garage for 1BR</li>
-                        <li>2-car garage for 2BR</li>
-                        <li>Direct entry to your home</li>
-                    </ul>
+                    <p>Every unit includes a private attached garage. No circling the block. No parking lot chaos. Just pull in and relax.</p>
                 </div>
-
-                <div class="feature">
-                    <div class="feature-icon">🏠</div>
+                
+                <div class="diff-item">
+                    <div class="diff-icon">🏠</div>
                     <h3>Townhome Privacy</h3>
-                    <p>No Shared Walls</p>
-                    <ul class="feature-list">
-                        <li>1,200+ sq ft layouts</li>
-                        <li>Modern finishes throughout</li>
-                        <li>Quartz counters, stainless appliances</li>
-                    </ul>
+                    <p>Multi-level living spaces with modern finishes. Enjoy the space and privacy you deserve without shared walls or ceiling neighbors.</p>
                 </div>
-
-                <div class="feature">
-                    <div class="feature-icon">📍</div>
+                
+                <div class="diff-item">
+                    <div class="diff-icon">📍</div>
                     <h3>Prime Location</h3>
-                    <p>Close to Everything</p>
-                    <ul class="feature-list">
-                        <li>22 min to Walmart HQ</li>
-                        <li>12 min to U of A</li>
-                        <li>Less than downtown rent</li>
-                    </ul>
+                    <p>22 minutes to Walmart HQ. 12 minutes to University of Arkansas. Close to everything that matters in NWA.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lifestyle Section with Images -->
-    <section class="lifestyle">
-        <div class="container">
-            <!-- Dynamic messaging by audience -->
-            <h2 class="section-title" data-corporate="Home Should Feel Like a Reward—Not a Compromise" 
-                data-faculty="Peace. Quiet. Professional Living." 
-                data-lifestyle="All the Stuff You Actually Want to Do">
-                Home Should Feel Like a Reward—Not a Compromise
-            </h2>
-
-            <div class="image-grid">
-                <!-- Stock images from Unsplash - Replace with actual property photos -->
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?w=800&h=600&fit=crop" alt="Private garage">
-                    <p class="image-label">Private Garage</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=600&fit=crop" alt="Modern kitchen">
-                    <p class="image-label">Modern Kitchen</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop" alt="Spacious living room">
-                    <p class="image-label">Spacious Living</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&h=600&fit=crop" alt="Pickleball court">
-                    <p class="image-label">Pickleball Court</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=600&fit=crop" alt="Dog park">
-                    <p class="image-label">Dog Park</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=800&h=600&fit=crop" alt="Fire pit area">
-                    <p class="image-label">Fire Pit</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location Map Section -->
-    <section class="location">
-        <div class="container">
-            <h2 class="section-title">Perfectly Located in Northwest Arkansas</h2>
+    <!-- Video Tour Section -->
+    <section class="video-tour">
+        <div class="video-tour-content">
+            <h2>See Your Next Home</h2>
+            <p>Take a virtual tour and experience the quality, space, and amenities that make The Villas at Palecero stand out.</p>
             
-            <div class="location-content">
-                <div class="map-placeholder">
-                    <!-- Stock map image - Replace with actual location map -->
-                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&h=800&fit=crop" alt="Location map">
-                    <div class="map-markers">
-                        <div class="marker">📍 The Villas at Palecero - Tontitown</div>
-                        <div class="marker">🏢 22 min to Walmart HQ</div>
-                        <div class="marker">🎓 12 min to University of Arkansas</div>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/bQ42P5iaPsc"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities">
+        <div class="amenities-content">
+            <h2>Amenities That Elevate Daily Life</h2>
+            
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <div class="amenity-image">🏐</div>
+                    <div class="amenity-content">
+                        <h3>Pickleball Court</h3>
+                        <p>Stay active with your own private pickleball court on-site.</p>
                     </div>
                 </div>
                 
-                <div class="location-text">
-                    <p class="location-description">
-                        Central location between Fayetteville and Bentonville. Easy commute to major employers, 
-                        shopping, dining, and entertainment—without the downtown price tag or parking hassles.
-                    </p>
+                <div class="amenity-card">
+                    <div class="amenity-image">🐕</div>
+                    <div class="amenity-content">
+                        <h3>Dog Park</h3>
+                        <p>Your four-legged friends will love the dedicated dog park area.</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-image">🔥</div>
+                    <div class="amenity-content">
+                        <h3>Fire Pit Area</h3>
+                        <p>Perfect for evening gatherings and making memories with neighbors.</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-image">🏋️</div>
+                    <div class="amenity-content">
+                        <h3>Fitness Center</h3>
+                        <p>24/7 access to modern fitness equipment. No gym membership needed.</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-image">🏊</div>
+                    <div class="amenity-content">
+                        <h3>Resort-Style Pool</h3>
+                        <p>Cool off in the summer with our beautifully maintained pool area.</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-image">💼</div>
+                    <div class="amenity-content">
+                        <h3>Business Center</h3>
+                        <p>Professional workspace for remote work or study sessions.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Offer Section -->
-    <section class="offer">
-        <div class="container">
-            <div class="offer-box">
-                <h2 class="offer-title">First Month Free on All New Move-Ins</h2>
-                <p class="offer-subtext">Book your tour today and lock in this limited-time offer</p>
-                <button class="btn btn-primary" onclick="scrollToForm()">Book Your Tour Now</button>
-                <p class="offer-fine-print">*Offer valid for move-ins within 30 days of booking</p>
+    <!-- Location Section -->
+    <section class="location">
+        <div class="location-content">
+            <div class="location-text">
+                <h2>Minutes from Everything That Matters</h2>
+                <p>Located in Tontitown, Arkansas, The Villas at Palecero puts you at the center of Northwest Arkansas's thriving corridor.</p>
+                
+                <ul class="location-list">
+                    <li>
+                        <span>Walmart Corporate HQ</span>
+                        <strong>22 min</strong>
+                    </li>
+                    <li>
+                        <span>University of Arkansas</span>
+                        <strong>12 min</strong>
+                    </li>
+                    <li>
+                        <span>Tyson Foods HQ</span>
+                        <strong>18 min</strong>
+                    </li>
+                    <li>
+                        <span>J.B. Hunt Corporate</span>
+                        <strong>25 min</strong>
+                    </li>
+                    <li>
+                        <span>Downtown Fayetteville</span>
+                        <strong>15 min</strong>
+                    </li>
+                    <li>
+                        <span>Bentonville Square</span>
+                        <strong>20 min</strong>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="location-map">
+                📍
             </div>
         </div>
     </section>
 
     <!-- Lead Form Section -->
-    <section class="form-section" id="bookingForm">
-        <div class="container">
-            <h2 class="section-title">Ready to See Your Next Home?</h2>
-            <p class="form-intro">Book your tour in under 60 seconds</p>
-
-            <!-- PLACEHOLDER FORM - REPLACE WITH GHL EMBED -->
-            <!-- See SETUP-GUIDE.md for instructions -->
-            <div class="form-container">
-                <form id="leadForm" class="lead-form">
+    <section class="lead-form-section" id="form">
+        <div class="lead-form-content">
+            <h2>Ready to See Your Next Home?</h2>
+            <p>Book your personal tour today. Our team will reach out within 24 hours to confirm your visit.</p>
+            
+            <form class="lead-form" id="leadForm">
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" name="fullName" required>
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
                     </div>
-
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-
+                    
                     <div class="form-group">
                         <label for="phone">Phone *</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
-
+                </div>
+                
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="moveInDate">Expected Move-In Date *</label>
-                        <select id="moveInDate" name="moveInDate" required>
-                            <option value="">Select timeframe...</option>
-                            <option value="within-30-days">Within 30 days</option>
-                            <option value="1-2-months">1-2 months</option>
-                            <option value="2-3-months">2-3 months</option>
-                            <option value="3-plus-months">3+ months</option>
-                        </select>
+                        <label for="moveInDate">Preferred Move-In Date *</label>
+                        <input type="date" id="moveInDate" name="moveInDate" required>
                     </div>
-
-                    <button type="submit" class="btn btn-primary btn-block">Book My Tour</button>
                     
-                    <p class="form-footer">
-                        By submitting, you agree to be contacted about your tour.
-                    </p>
-                </form>
-
-                <!-- Replace entire form-container div with GHL embed code when ready -->
-            </div>
-
-            <div class="form-alternative">
-                <p>Prefer to apply online first? 
-                    <a href="https://paleceroliving.com" target="_blank">View available units</a>
-                </p>
-            </div>
+                    <div class="form-group">
+                        <label for="employer">Employer (Optional)</label>
+                        <input type="text" id="employer" name="employer" placeholder="Walmart, U of A, etc.">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-primary form-submit">Book My Tour</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3 style="font-family: serif; color: white; margin: 0;">THE VILLAS AT PALECERO</h3>
-                </div>
-                <div class="footer-info">
-                    <p>339-B Aquino Ave, Tontitown, AR 72762</p>
-                    <p><a href="tel:9189954355">(918) 995-4355</a></p>
-                    <p><a href="https://paleceroliving.com" target="_blank">paleceroliving.com</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Villas at Palecero. All rights reserved.</p>
-            </div>
+        <div class="footer-content">
+            <p>&copy; 2025 The Villas at Palecero. All rights reserved.</p>
+            <p>Managed by <a href="https://www.paleceroliving.com" target="_blank">Palecero Living</a> | <a href="https://www.paleceroliving.com/availability" target="_blank">View Availability</a></p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Dynamic content based on URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('source');
+
+        const content = {
+            corporate: {
+                headline: "Relocating for Work? Live Larger, Stress Less.",
+                subtitle: "Modern townhomes designed for corporate relocators. Private garage. Premium finishes. 22 minutes to Walmart HQ.",
+                showSocialProof: true
+            },
+            faculty: {
+                headline: "Finally, a Home That Matches Your Career.",
+                subtitle: "Quiet, spacious townhomes just 12 minutes from campus. Perfect for faculty and staff who value comfort and convenience.",
+                showSocialProof: false
+            },
+            lifestyle: {
+                headline: "Upgrade Your Lifestyle—Not Just Your Rent.",
+                subtitle: "Resort-style amenities. Townhome privacy. Prime location. This is how NWA living should feel.",
+                showSocialProof: false
+            }
+        };
+
+        // Apply dynamic content if source parameter exists
+        if (source && content[source]) {
+            document.getElementById('heroHeadline').textContent = content[source].headline;
+            document.getElementById('heroSubtitle').textContent = content[source].subtitle;
+            
+            if (content[source].showSocialProof) {
+                document.getElementById('socialProof').style.display = 'inline-flex';
+            }
+        }
+
+        // Form submission handler
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                moveInDate: document.getElementById('moveInDate').value,
+                employer: document.getElementById('employer').value,
+                source: source || 'direct',
+                timestamp: new Date().toISOString()
+            };
+
+            // Store in localStorage for confirmation page
+            localStorage.setItem('tourBooking', JSON.stringify(formData));
+
+            // TODO: Replace with your GoHighLevel webhook URL
+            // fetch('YOUR_GHL_WEBHOOK_URL', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData)
+            // });
+
+            // Redirect to confirmation page
+            window.location.href = 'confirmation.html';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
