@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Villas at Palecero | Your Home in Northwest Arkansas</title>
+    <meta name="description" content="Private garages, modern finishes, and townhome living in Tontitown, AR. 22 minutes to Walmart HQ, 12 minutes to U of A.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dynamic content loads based on ?source= parameter -->
+    <!-- corporate, faculty, or lifestyle -->
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="logo">
+                <img src="/images/palecero-logo.png" alt="The Villas at Palecero">
+            </div>
+            
+            <!-- Dynamic Headlines - JavaScript switches these based on audience -->
+            <h1 class="hero-headline" data-corporate="Relocating for Work? Live Larger, Stress Less." 
+                data-faculty="Finally, a Home That Matches Your Career." 
+                data-lifestyle="Upgrade Your Lifestyle—Not Just Your Rent.">
+                Relocating for Work? Live Larger, Stress Less.
+            </h1>
+            
+            <p class="hero-subheadline">
+                Private garages. Modern finishes. 22 minutes to Walmart HQ.
+            </p>
+
+            <div class="hero-cta">
+                <button class="btn btn-primary" onclick="scrollToForm()">Book Your Tour</button>
+                <p class="cta-subtext">Move in this month, first month free</p>
+            </div>
+
+            <!-- Social Proof Badge -->
+            <div class="social-proof" data-corporate="show" data-faculty="hide" data-lifestyle="hide">
+                <p class="proof-text">Trusted by professionals from:</p>
+                <div class="company-logos">
+                    <span class="company">Walmart</span>
+                    <span class="company">Tyson</span>
+                    <span class="company">J.B. Hunt</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Background Image - REPLACE WITH ACTUAL IMAGES -->
+        <!-- Corporate: /images/hero-corporate.jpg (garage or modern interior) -->
+        <!-- Faculty: /images/hero-faculty.jpg (peaceful exterior) -->
+        <!-- Lifestyle: /images/hero-lifestyle.jpg (amenities in use) -->
+        <div class="hero-background" id="heroBackground"></div>
+        
+        <!-- Optional: Replace with video -->
+        <!-- <video class="hero-video" autoplay muted loop playsinline>
+            <source src="/videos/hero-loop.mp4" type="video/mp4">
+        </video> -->
+    </section>
+
+    <!-- Differentiator Section -->
+    <section class="differentiator">
+        <div class="container">
+            <h2 class="section-title">No Parking Nightmares. No Cramped Downtown Boxes.</h2>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Your Own Garage</h3>
+                    <p>Every Unit</p>
+                    <ul class="feature-list">
+                        <li>1-car garage for 1BR</li>
+                        <li>2-car garage for 2BR</li>
+                        <li>Direct entry to your home</li>
+                    </ul>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Townhome Privacy</h3>
+                    <p>No Shared Walls</p>
+                    <ul class="feature-list">
+                        <li>1,200+ sq ft layouts</li>
+                        <li>Modern finishes throughout</li>
+                        <li>Quartz counters, stainless appliances</li>
+                    </ul>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📍</div>
+                    <h3>Prime Location</h3>
+                    <p>Close to Everything</p>
+                    <ul class="feature-list">
+                        <li>22 min to Walmart HQ</li>
+                        <li>12 min to U of A</li>
+                        <li>Less than downtown rent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Section with Images -->
+    <section class="lifestyle">
+        <div class="container">
+            <!-- Dynamic messaging by audience -->
+            <h2 class="section-title" data-corporate="Home Should Feel Like a Reward—Not a Compromise" 
+                data-faculty="Peace. Quiet. Professional Living." 
+                data-lifestyle="All the Stuff You Actually Want to Do">
+                Home Should Feel Like a Reward—Not a Compromise
+            </h2>
+
+            <div class="image-grid">
+                <!-- REPLACE THESE PLACEHOLDER IMAGES -->
+                <div class="image-card">
+                    <img src="/images/placeholder-garage.jpg" alt="Private garage">
+                    <p class="image-label">Private Garage</p>
+                </div>
+                <div class="image-card">
+                    <img src="/images/placeholder-kitchen.jpg" alt="Modern kitchen">
+                    <p class="image-label">Modern Kitchen</p>
+                </div>
+                <div class="image-card">
+                    <img src="/images/placeholder-living.jpg" alt="Spacious living room">
+                    <p class="image-label">Spacious Living</p>
+                </div>
+                <div class="image-card">
+                    <img src="/images/placeholder-pickleball.jpg" alt="Pickleball court">
+                    <p class="image-label">Pickleball Court</p>
+                </div>
+                <div class="image-card">
+                    <img src="/images/placeholder-dogpark.jpg" alt="Dog park">
+                    <p class="image-label">Dog Park</p>
+                </div>
+                <div class="image-card">
+                    <img src="/images/placeholder-firepit.jpg" alt="Fire pit area">
+                    <p class="image-label">Fire Pit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Map Section -->
+    <section class="location">
+        <div class="container">
+            <h2 class="section-title">Perfectly Located in Northwest Arkansas</h2>
+            
+            <div class="location-content">
+                <div class="map-placeholder">
+                    <!-- REPLACE: Add actual map image or embed Google Maps -->
+                    <img src="/images/placeholder-map.jpg" alt="Location map">
+                    <div class="map-markers">
+                        <div class="marker">📍 The Villas at Palecero - Tontitown</div>
+                        <div class="marker">🏢 22 min to Walmart HQ</div>
+                        <div class="marker">🎓 12 min to University of Arkansas</div>
+                    </div>
+                </div>
+                
+                <div class="location-text">
+                    <p class="location-description">
+                        Central location between Fayetteville and Bentonville. Easy commute to major employers, 
+                        shopping, dining, and entertainment—without the downtown price tag or parking hassles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer">
+        <div class="container">
+            <div class="offer-box">
+                <h2 class="offer-title">First Month Free on All New Move-Ins</h2>
+                <p class="offer-subtext">Book your tour today and lock in this limited-time offer</p>
+                <button class="btn btn-primary" onclick="scrollToForm()">Book Your Tour Now</button>
+                <p class="offer-fine-print">*Offer valid for move-ins within 30 days of booking</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Form Section -->
+    <section class="form-section" id="bookingForm">
+        <div class="container">
+            <h2 class="section-title">Ready to See Your Next Home?</h2>
+            <p class="form-intro">Book your tour in under 60 seconds</p>
+
+            <!-- PLACEHOLDER FORM - REPLACE WITH GHL EMBED -->
+            <!-- See SETUP-GUIDE.md for instructions -->
+            <div class="form-container">
+                <form id="leadForm" class="lead-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="moveInDate">Expected Move-In Date *</label>
+                        <select id="moveInDate" name="moveInDate" required>
+                            <option value="">Select timeframe...</option>
+                            <option value="within-30-days">Within 30 days</option>
+                            <option value="1-2-months">1-2 months</option>
+                            <option value="2-3-months">2-3 months</option>
+                            <option value="3-plus-months">3+ months</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Book My Tour</button>
+                    
+                    <p class="form-footer">
+                        By submitting, you agree to be contacted about your tour.
+                    </p>
+                </form>
+
+                <!-- Replace entire form-container div with GHL embed code when ready -->
+            </div>
+
+            <div class="form-alternative">
+                <p>Prefer to apply online first? 
+                    <a href="https://paleceroliving.com" target="_blank">View available units</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/images/palecero-logo.png" alt="The Villas at Palecero">
+                </div>
+                <div class="footer-info">
+                    <p>339-B Aquino Ave, Tontitown, AR 72762</p>
+                    <p><a href="tel:9189954355">(918) 995-4355</a></p>
+                    <p><a href="https://paleceroliving.com" target="_blank">paleceroliving.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Villas at Palecero. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

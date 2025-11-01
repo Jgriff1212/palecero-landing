@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Confirmed! | The Villas at Palecero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="confirmation-hero">
+        <div class="container">
+            <div class="confirmation-content">
+                <div class="success-icon">✅</div>
+                <h1 class="confirmation-title">Your Tour is Confirmed!</h1>
+                <p class="confirmation-subtitle">Welcome home! We'll reach out within 24 hours to confirm your tour time.</p>
+
+                <!-- Add to Calendar Section -->
+                <div class="calendar-section">
+                    <h3>Add Your Tour to Calendar</h3>
+                    <div class="calendar-buttons">
+                        <button class="btn btn-calendar" onclick="addToGoogleCalendar()">
+                            📅 Google Calendar
+                        </button>
+                        <button class="btn btn-calendar" onclick="addToAppleCalendar()">
+                            📅 Apple Calendar
+                        </button>
+                        <button class="btn btn-calendar" onclick="addToOutlookCalendar()">
+                            📅 Outlook/Other
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="next-steps">
+                    <h3>What Happens Next?</h3>
+                    <ol class="steps-list">
+                        <li>
+                            <strong>Check Your Email</strong>
+                            <p>Tour confirmation sent to your inbox</p>
+                        </li>
+                        <li>
+                            <strong>We'll Call You</strong>
+                            <p>Our team will reach out within 24 hours to confirm details</p>
+                        </li>
+                        <li>
+                            <strong>Visit Your New Home</strong>
+                            <p>See the villas in person and find your perfect unit</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Priority Application CTA -->
+                <div class="priority-cta">
+                    <h3>Want to secure your preferred unit before your tour?</h3>
+                    <p class="priority-description">
+                        Apply online now and get priority access. We'll fast-track your approval 
+                        so you're first in line for available units.
+                    </p>
+                    <button class="btn btn-secondary" onclick="showApplicationInstructions()">
+                        🏠 Apply Now for Priority Access
+                    </button>
+                </div>
+
+                <!-- Back to Home -->
+                <div class="back-link">
+                    <a href="https://paleceroliving.com">← Back to paleceroliving.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Instructions Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <h2 class="modal-title">🎯 How to Apply in 3 Easy Steps</h2>
+            
+            <div class="instructions-steps">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>You'll see available units on the next page</h4>
+                        <p>Browse 1-bedroom and 2-bedroom options</p>
+                    </div>
+                </div>
+
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Click on your preferred unit</h4>
+                        <p>Each listing shows photos, pricing, and availability</p>
+                    </div>
+                </div>
+
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Click the "Apply Now" button</h4>
+                        <p>Look for the green "Apply Now" button on that unit's listing page</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-tip">
+                <p><strong>✨ Quick Tip:</strong> Applications are processed same-day, so you'll know your approval status before your tour!</p>
+            </div>
+
+            <button class="btn btn-primary btn-block" onclick="openApplicationSite()">
+                View Available Units & Apply →
+            </button>
+
+            <p class="modal-footer">
+                <a href="#" onclick="closeModal(); return false;">Or go back to confirmation page</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/images/palecero-logo.png" alt="The Villas at Palecero">
+                </div>
+                <div class="footer-info">
+                    <p>339-B Aquino Ave, Tontitown, AR 72762</p>
+                    <p><a href="tel:9189954355">(918) 995-4355</a></p>
+                    <p><a href="https://paleceroliving.com" target="_blank">paleceroliving.com</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Add to calendar functions
+        function addToGoogleCalendar() {
+            // REPLACE: Will be connected to GHL calendar data
+            const event = {
+                title: 'Tour at The Villas at Palecero',
+                location: '339-B Aquino Ave, Tontitown, AR 72762',
+                details: 'Property tour at The Villas at Palecero',
+                // These will come from GHL booking
+                start: new Date(), // Replace with actual tour time
+                end: new Date(Date.now() + 30 * 60000) // 30 minutes later
+            };
+            
+            const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&location=${encodeURIComponent(event.location)}&details=${encodeURIComponent(event.details)}`;
+            window.open(googleUrl, '_blank');
+        }
+
+        function addToAppleCalendar() {
+            downloadICSFile();
+        }
+
+        function addToOutlookCalendar() {
+            downloadICSFile();
+        }
+
+        function downloadICSFile() {
+            // Generate .ics file for calendar
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Tour at The Villas at Palecero
+LOCATION:339-B Aquino Ave, Tontitown, AR 72762
+DESCRIPTION:Property tour at The Villas at Palecero
+DTSTART:${formatDateForICS(new Date())}
+DTEND:${formatDateForICS(new Date(Date.now() + 30 * 60000))}
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Tour reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'palecero-tour.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function formatDateForICS(date) {
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+    </script>
+</body>
+</html>
