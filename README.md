@@ -68,7 +68,7 @@ npm install -g vercel
 cd palecero-landing
 vercel
 
-# Follow prompts, then get your live URL
+# Follow prompts, then get your live URL 
 ```
 
 ---
