@@ -325,13 +325,21 @@
         }
 
         .modal-body {
-            padding: 2rem;
+            padding: 1.5rem 2rem;
+            max-height: 60vh;
+            overflow-y: auto;
         }
 
         .modal-step {
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-step:last-child {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
         .modal-step:last-child {
@@ -388,7 +396,7 @@
         }
 
         .modal-footer {
-            padding: 2rem;
+            padding: 1.25rem 2rem;
             text-align: center;
         }
 
@@ -483,24 +491,35 @@
                     <div class="step-item">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3>Experience Your Future Home</h3>
-                            <p>During your tour, you'll see available units, explore our amenities, and get a feel for the community.</p>
+                            <h3>Schedule Your Tour Time</h3>
+                            <p>Select your preferred tour date and time using our booking calendar below.</p>
                         </div>
+                    </div>
+
+                    <!-- GHL Booking Calendar Placeholder -->
+                    <div style="background: var(--light-gray); padding: 3rem; text-align: center; border: 2px dashed var(--medium-gray); margin: 2rem 0;">
+                        <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 1rem;">📅 <strong>GoHighLevel Booking Calendar Will Appear Here</strong></p>
+                        <p style="color: var(--text-light); font-size: 0.875rem;">Add your GHL booking widget embed code to replace this placeholder</p>
+                        <!-- 
+                        REPLACE THIS DIV WITH YOUR GHL BOOKING WIDGET:
+                        <div id="ghl-booking-widget"></div>
+                        <script src="YOUR_GHL_BOOKING_SCRIPT_URL"></script>
+                        -->
                     </div>
 
                     <div class="step-item">
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h3>Ready to Apply?</h3>
-                            <p>If you love what you see, you can apply online immediately. <a href="#" id="showInstructionsLink" style="color: var(--primary-navy); font-weight: 600;">View application instructions</a></p>
+                            <p>If you're ready to secure your new home, you can start your application now.</p>
+                            <a href="#" id="showInstructionsBtn" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Apply Today</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="action-buttons">
-                    <button class="btn btn-primary" id="addToCalendar">Add to Calendar</button>
-                    <a href="https://www.paleceroliving.com/availability" class="btn btn-secondary" target="_blank">View Availability</a>
+                <div class="action-buttons" style="grid-template-columns: 1fr;">
+                    <button class="btn btn-primary" id="addToCalendar">Add Tour to Calendar</button>
                 </div>
 
                 <!-- Offer Reminder -->
@@ -526,22 +545,14 @@
                 <div class="modal-step">
                     <h3>
                         <span class="step-badge">1</span>
-                        Visit the Availability Page
+                        Select Your Unit
                     </h3>
-                    <p>Go to <a href="https://www.paleceroliving.com/availability" target="_blank" style="color: var(--primary-navy); font-weight: 600;">paleceroliving.com/availability</a> to see current available units and pricing.</p>
+                    <p>Click the button below to see current available units and pricing. Browse floor plans and click on the one that fits your needs.</p>
                 </div>
 
                 <div class="modal-step">
                     <h3>
                         <span class="step-badge">2</span>
-                        Select Your Unit
-                    </h3>
-                    <p>Browse available floor plans and units. Click on the one that fits your needs to see detailed information and pricing.</p>
-                </div>
-
-                <div class="modal-step">
-                    <h3>
-                        <span class="step-badge">3</span>
                         Click "Apply Now"
                     </h3>
                     <p>Once you've chosen your unit, click the "Apply Now" button to begin the online application process.</p>
@@ -549,23 +560,15 @@
 
                 <div class="modal-step">
                     <h3>
-                        <span class="step-badge">4</span>
+                        <span class="step-badge">3</span>
                         Complete the Application
                     </h3>
-                    <p>Fill out all required information including personal details, employment history, and references. The application fee is $50 per adult applicant.</p>
+                    <p>Fill out all required information including personal details, employment history, and references. Upload proof of income, photo ID, and any other requested documentation. The application fee is $50 per adult applicant.</p>
                 </div>
 
                 <div class="modal-step">
                     <h3>
-                        <span class="step-badge">5</span>
-                        Submit Required Documents
-                    </h3>
-                    <p>Upload proof of income (pay stubs, offer letter, etc.), photo ID, and any other requested documentation.</p>
-                </div>
-
-                <div class="modal-step">
-                    <h3>
-                        <span class="step-badge">6</span>
+                        <span class="step-badge">4</span>
                         Receive Your Decision
                     </h3>
                     <p>Applications are typically processed within 24-48 hours. You'll be notified via email once your application has been reviewed.</p>
@@ -619,10 +622,10 @@
 
         // Modal functionality
         const modal = document.getElementById('instructionsModal');
-        const showInstructionsLink = document.getElementById('showInstructionsLink');
+        const showInstructionsBtn = document.getElementById('showInstructionsBtn');
         const closeModal = document.getElementById('closeModal');
 
-        showInstructionsLink.addEventListener('click', function(e) {
+        showInstructionsBtn.addEventListener('click', function(e) {
             e.preventDefault();
             modal.classList.add('active');
         });
